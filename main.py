@@ -40,6 +40,7 @@ def main():
                 break
             else:
                 break
+        newline=all_newline()
         # start_abstract+15,end_abstract
         # TODO 查找一行一个或两个的单词
         o_abstract = page0_1[start_abstract + 16:end_abstract]
@@ -55,4 +56,4 @@ def main():
 
 
 if __name__ == '__main__':
-    all_newline()
+    main()
