@@ -1,5 +1,5 @@
 import pdfplumber
-
+# 按从第二页开始按页来算
 
 # 翻译摘要就算成功...
 
@@ -111,7 +111,7 @@ def main():
         #要删除的文字在最后一块删
 
 
-        # TODO 和主体不是一块的内容，特征是多余一个的空格，并删除所在位置与前一个空格之间的单词，或者是与前一个换行符之间的单词
+        # TODO 和主体不是一块的内容，特征是有两个或三个的空格，并删除所在位置与前一个空格之间的单词，或者是与前一个换行符之间的单词
 
         # 去除换行符
         two,three= all_balck()
@@ -120,12 +120,5 @@ def main():
         print(abstract)
 
 
-#if __name__ == '__main__':
-file_path = r'test.pdf'
-with pdfplumber.open(file_path) as pdf:
-    page0 = pdf.pages[1]
-    # print(page0.extract_text())
-    # Chemosphere 摘要开始与结束
-    # 格式化为str,这是没有动过的原文。
-    pagetext = str(page0.extract_text())
-    print(pagetext)
+if __name__ == '__main__':
+    main()
