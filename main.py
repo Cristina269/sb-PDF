@@ -4,6 +4,14 @@ import pdfplumber
 # 每段处理完再删除（通过文字查找）和翻译
 # 翻译摘要就算成功...后面同理
 
+def  translation_module(text):
+    # 直接百度翻译
+
+def save_trans():
+    # 获取文件名+翻译
+    # 按段保存并换行
+
+
 def all_newline(page_number=1):
     # 返回换行符（目前只有第一页
     newline = [0, 1]
@@ -84,7 +92,7 @@ def returns_intersection(pagetext, black_new, start_abstract, end_abstract):
     re_newline = black_new[len(front):len(black_new) - len(back)]  # 两个元素之间是一行
     print(re_newline)
 
-def main2():
+def newline_character_abs():    #摘要所有换行符位置
     file_path = r'test.pdf'
     with pdfplumber.open(file_path) as pdf:
         page0 = pdf.pages[0]
@@ -99,7 +107,13 @@ def main2():
                 break
             else:
                 break
-        newline = all_newline()
+        newline_position = all_newline()
+        return newline_position
+
+def main2():    #重写试试
+    newline_position=newline_character_abs()    #摘要所有换行符位置
+
+
 
 def main_abstract():
     file_path = r'test.pdf'
