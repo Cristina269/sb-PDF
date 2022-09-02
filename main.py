@@ -4,12 +4,15 @@ import pdfplumber
 # 每段处理完再删除（通过文字查找）和翻译
 # 翻译摘要就算成功...后面同理
 
-def  translation_module(text):
+def translation_module(text):
     # 直接百度翻译
+    pass
+
 
 def save_trans():
     # 获取文件名+翻译
     # 按段保存并换行
+    pass
 
 
 def all_newline(page_number=1):
@@ -31,7 +34,7 @@ def all_newline(page_number=1):
             pass
 
 
-def all_balck(page_number=1):
+def all_black(page_number=1):
     # 返回了所有双三空格 列表
     two = [0, 1]
     three = [0, 1]
@@ -46,7 +49,7 @@ def all_balck(page_number=1):
             del (two[0])
             del (two[-1])
     with pdfplumber.open(file_path) as pdf:
-        all_page_number = len(pdf.pages[:])
+        len(pdf.pages[:])
         if page_number == 1:
             while three[-1] != -1:
                 page0_1 = str(pdf.pages[0].extract_text())
@@ -70,9 +73,7 @@ def return_interaim(aim1, aim2):  # 返回列表中aim1和aim2之间的数字   
     target_location = aim2.index(aim1)  # aim1在aim2里的位置
     in_front_variable = aim2[target_location - 1]  # aim1前面一个数字的位置
     aim1 - in_front_variable
-    waiting_for_delete = []  # 等待删除的
-    waiting_for_delete.append(in_front_variable + 1)
-    waiting_for_delete.append(aim1)
+    waiting_for_delete = [in_front_variable + 1, aim1]  # 等待删除的
     print(waiting_for_delete)
 
 
@@ -92,7 +93,8 @@ def returns_intersection(pagetext, black_new, start_abstract, end_abstract):
     re_newline = black_new[len(front):len(black_new) - len(back)]  # 两个元素之间是一行
     print(re_newline)
 
-def newline_character_abs():    #摘要所有换行符位置
+
+def newline_character_abs():  # 摘要所有换行符位置
     file_path = r'test.pdf'
     with pdfplumber.open(file_path) as pdf:
         page0 = pdf.pages[0]
@@ -100,7 +102,7 @@ def newline_character_abs():    #摘要所有换行符位置
         while 1:
             start_abstract = int(
                 page0.extract_text().find('A B S T R A C T', 1))  # page0.extract_text().find('A B S T R A C T')+1))
-            end_abstract = int(page0.extract_text().find('* Corresponding author.'))
+            int(page0.extract_text().find('* Corresponding author.'))
             if pagetext[start_abstract - 3] == 'L':
                 start_abstract = int(
                     page0.extract_text().find('A B S T R A C T', page0.extract_text().find('A B S T R A C T') + 1))
@@ -110,9 +112,9 @@ def newline_character_abs():    #摘要所有换行符位置
         newline_position = all_newline()
         return newline_position
 
-def main2():    #重写试试
-    newline_position=newline_character_abs()    #摘要所有换行符位置
 
+def main2():  # 重写试试
+    newline_position = newline_character_abs()  # 摘要所有换行符位置
 
 
 def main_abstract():
@@ -167,7 +169,7 @@ def main_abstract():
         # TODO 和主体不是一块的内容，特征是有两个或三个的空格，并删除所在位置与前一个空格之间的单词，或者是与前一个换行符之间的单词
 
         # 去除换行符
-        two, three = all_balck()
+        two, three = all_black()
         # TODO 删掉的应该是空格和换行符之间的
 
         abstract = pagetext[start_abstract + 16:end_abstract]  # .replace("\n", "")
@@ -176,5 +178,3 @@ def main_abstract():
 
 if __name__ == '__main__':
     main2()
-
-
