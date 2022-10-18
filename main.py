@@ -18,7 +18,7 @@ def save_trans():
 def all_newline(page_number=1):
     # 返回换行符（目前只有第一页
     newline = [0, 1]
-    file_path = r'test.pdf'
+    file_path = r'test2.pdf'
     with pdfplumber.open(file_path) as pdf:
         len(pdf.pages[:])
         if page_number == 1:
